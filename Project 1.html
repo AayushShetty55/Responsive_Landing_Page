@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+
+    <!-- link icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+    <!-- link file css -->
+    <link rel="stylesheet" href="Project 1.css">
+    
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            padding: 0 15px 15px;
+        }
+
+        nav {
+            width: 90%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            color: #79bccf;
+            font-size: 28px;
+        }
+
+        .logo h2 {
+            color: #444;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            display: inline-block;
+            margin-left: 50px;
+            height: 80px;
+            position: relative;
+            line-height: 80px;
+            cursor: pointer;
+        }
+
+        ul li::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: #79bccf;
+            width: 0%;
+            height: 3px;
+            transition: 0.3s;
+        }
+
+        ul li:hover::after,
+        ul li.active::after {
+            width: 100%;
+        }
+
+        ul li a {
+            color: #444;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        ul li a:hover,
+        ul li.active a {
+            color: #79bccf;
+        }
+
+        .content {
+            width: 100%;
+            height: calc(100vh - 95px);
+            background: linear-gradient(130deg, #c4e1f8, #eeb0bd);
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+        }
+
+        .div-text span {
+            color: #fff;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            font-weight: bold;
+        }
+
+        .div-text h3 {
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            font-size: 60px;
+            font-weight: normal;
+            margin: 20px 0 8px;
+            color: #444;
+        }
+
+        .div-text h1 {
+            font-size: 70px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            color: #444;
+            margin-bottom: 25px;
+        }
+
+        .div-text p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.8;
+            letter-spacing: 1.3px;
+            margin-bottom: 55px;
+        }
+
+        .div-text .btn {
+            padding: 15px 35px;
+            background-color: #fff;
+            color: #79bccf;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .div-text .btn:hover {
+            color: #fff;
+            background-color: #79bccf;
+        }
+
+        .div-img img {
+            width: 350px;
+        }
+
+        .small-img {
+            position: absolute;
+            left: 50%;
+            bottom: 20px;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 80px;
+        }
+
+        .small-img img {
+            width: 80px;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        .small-img img:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <i class="fa-solid fa-store"></i>
+                <h2>Foot-Store</h2>
+            </div>
+            <ul>
+                <li class="active"><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT US</a></li>
+                <li><a href="#">SHOP</a></li>
+                <li><a href="#">CONTACT</a></li>
+                <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <div class="div-text">
+                <span>grab your SNEAKERS now!</span>
+                <h3>all your</h3>
+                <h1>styles are here</h1>
+                <p>Introducing our latest collection for men and women.<br>All types of SNEAKERS and FLIP FLOPS at affordable prices.<br>Hurry up before it gets out of stock.</p>
+                <a href="#" class="btn">buy now</a>
+            </div>
+            <div class="div-img">
+                <img id="big-img" src="jacket1.png" alt="">
+            </div>
+            <div class="small-img">
+                <img onclick="myTshirt(this.src)" src="Simg1.png" alt="">
+                <img onclick="myTshirt(this.src)" src="Simg2.png" alt="">
+                <img onclick="myTshirt(this.src)" src="Simg3.png" alt="">
+                <img onclick="myTshirt(this.src)" src="Cimg1.png" alt="">
+                <img onclick="myTshirt(this.src)" src="Fimg1.png" alt="">
+                <img onclick="myTshirt(this.src)" src="Fimg2.png" alt="">
+            </div>
+        </div>
+    </div>
+    <script>
+        let bigImage = document.getElementById('big-img');
+
+        function myTshirt(shirt){
+            bigImage.src = shirt
+        }
+    </script>
+</body>
+</html>
